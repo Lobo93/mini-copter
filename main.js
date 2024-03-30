@@ -292,7 +292,6 @@ function loadLevel(name) {
 	targetY = level.spawnPointY
 	helicopter.dead = false
 	previousTime = performance.now()
-	if (level === levels.level1) gameTime = 0
 	window.requestAnimationFrame(frame)
 }
 
@@ -409,7 +408,10 @@ function frame(currentTime) {
 
 	// End level
 	let distanceFromEnd = Math.sqrt((level.endX - helicopter.x) ** 2 + (level.endY - helicopter.y) ** 2)
-	if (distanceFromEnd < 16) loadLevel(level.nextLevel)
+	if (distanceFromEnd < 16) {
+		if (level === levels.end) gameTime = 0
+		loadLevel(level.nextLevel)
+	}
 
 	// Call next frame
 	window.requestAnimationFrame(frame)
