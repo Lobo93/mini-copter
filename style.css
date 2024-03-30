@@ -1,0 +1,25 @@
+:root {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	background-color: #111;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+canvas {
+	width: 100%;
+	aspect-ratio: 1;
+	image-rendering: pixelated;
+}
+
+@media (min-aspect-ratio: 1) {
+	canvas {
+		width: unset;
+		height: 100%;
+	}
+}
